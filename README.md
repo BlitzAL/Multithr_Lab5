@@ -1,10 +1,17 @@
-# Multithr_Lab5
+# Лабораторная работа №5
+* conf - папка с конфигами
+* code - код к 2, 3 и 4 пунктам
 Запуск
-1) docker ps смотрим id контейнера ( idconn ).
-2) docker exec -i -t idconn bash команда что бы залезть в консоль контейнера.
-3) Запускаем Prepare.bash на хосте или вручную запускаем скрипты оттуда ( переносим файлы для работы в контейнер)
-4) Далее заускаем Master.bash в контейнере ( подготавливаем мастера к работе )
-		Если ошибка на /bin/bash^M: bad interpreter
-		apt-get install dos2unix
-		dos2unix scriptname.bash
-5) запуск Alone или Yanr и приписываем что запускать через пробел
+1) docker ps смотрим имя контейнера
+2) docker cp filename 7bb9bfc3511c:/root/filename - копируем имена
+
+docker cp init_master.bash 7bb9bfc3511c:/root/init_master.bash - кописрем имена
+docker cp slaves 7bb9bfc3511c:/root/usr/local/spark/conf/slaves - кописрем имена
+Если ошибка на /bin/bash^M: bad interpreter
+apt-get install dos2unix
+dos2unix scriptname.sh
+
+* `prepare-master.bash` - скрипт для настройки мастера, когда стэк поднят
+* `init_master.bash` - подготовка мастера к работе (внутри контейнера)
+* `standalone.bash` - для запуска кода внутри контейнера в standalone
+* `over_yarn.bash` - то же, для over yarn
