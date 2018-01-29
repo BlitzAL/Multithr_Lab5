@@ -1,17 +1,17 @@
 version: "3"
 services:
   my-hadoop-master:
-    image: blitzal/hadoop
+    image: blitzal/hadoop-master
     networks:
       - "mynetwork"
     ports:
       - "7788:8080"
   slave1:
-    image: blitzal/hadoop
+    image: blitzal/hadoop-master
     networks:
       - "mynetwork"
   slave2:
-    image: blitzal/hadoop
+    image: blitzal/hadoop-master
     networks:
       - "mynetwork"
 networks:
